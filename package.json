@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/othman853/simple-todo-with-no-fanciness#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "bower": "^1.7.9",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-load": "^1.1.15"
   }
 }

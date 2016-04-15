@@ -1,0 +1,25 @@
+{
+  "name": "simple-todo-with-no-fanciness",
+  "description": "Just a simple todo app",
+  "main": "server.js",
+  "authors": [
+    "@othman853 (anuar.yasser@gmail.com)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "todo",
+    "simple"
+  ],
+  "homepage": "https://github.com/othman853/simple-todo-with-no-fanciness",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/depdendencies",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
