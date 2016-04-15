@@ -1,0 +1,26 @@
+{
+  "name": "simple-todo-with-no-fanciness",
+  "version": "1.0.0",
+  "description": "Just a simple todo app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/othman853/simple-todo-with-no-fanciness.git"
+  },
+  "keywords": [
+    "todo",
+    "simple"
+  ],
+  "author": "@othman853 (anuar.yasser@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/othman853/simple-todo-with-no-fanciness/issues"
+  },
+  "homepage": "https://github.com/othman853/simple-todo-with-no-fanciness#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
