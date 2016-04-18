@@ -1,5 +1,7 @@
+
 $(document).ready(function() {
 
+  var alert = new Todos.Alert();
   var socketServer = io.connect('http://localhost:3000');
 
   $('#new-todo-form').on('submit', function(event) {
@@ -11,11 +13,7 @@ $(document).ready(function() {
 
   socketServer.on('new todo step 1 response', function (data) {
     var pageContainer = $('#container');
-    var alertMessage = $('.alert-boilerplate').first().clone();
-
-    alertMessage.find('.alert-text').text(data.message);
-    alertMessage.removeClass('alert-boilerplate');
-
+    var alertMessage = alert.create(data.message, 'success');
     pageContainer.prepend(alertMessage);
 
   });
