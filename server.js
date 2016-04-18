@@ -1,27 +1,31 @@
 'use strict';
 
-var express = require('express');
-var app = express();
-var io = require('socket.io');
+var mongoose = require('mongoose');
 
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+global.db = mongoose.connect('mongodb://localhost:27017/todos-and-expenses', (error) => {
 
-app.get('/' , (request, response) => response.render('new-todo.ejs'));
+  if (error) {
+    console.error('Could not connect to the database on localhost');
+    process.exit(1);
+  }
 
-var httpServer = require('http').createServer(app);
-var socketClient = io(httpServer);
+  var express = require('express');
+  var app = express();
+  var io = require('socket.io');
 
-httpServer.listen(3000, () => console.log('Up on port 3000'));
+  var routes = require('./routes');
+  var responders = require('./responders');
 
-socketClient.on('connect', (client) => {
+  app.set('view engine', 'ejs');
+  app.use(express.static(__dirname + '/public'));
 
-  client.on('new todo step 1', (data) => {
-    client.emit('new todo step 1 response', {message: data.title + ' was created'});
-  });
+  app.get('/' , routes.root);
 
-  client.on('new todo', (data) => {
-    console.log(require('util').inspect(data, { depth: null }));
-  });
+  var httpServer = require('http').createServer(app);
+  var socketClient = io(httpServer);
+
+  httpServer.listen(3000, () => console.log('Up on port 3000'));
+
+  socketClient.on('connect', responders.todo);
 
 });

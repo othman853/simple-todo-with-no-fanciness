@@ -53,6 +53,14 @@ Todos.Components.NewTodo = function (container, alert, socketServer) {
     socketServer.on('new todo step 1 response', function (data) {
       container.prepend(alert.create(data.message, 'success'));
     });
+
+    socketServer.on('new todo save success', function(data) {
+      container.prepend(alert.create(data.message, 'success'));
+    });
+
+    socketServer.on('new todo save error', function(data) {
+      container.prepend(alert.create(data.message, 'danger'));
+    });
   }
 
   function getTodoData() {
