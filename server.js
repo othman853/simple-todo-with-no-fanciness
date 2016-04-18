@@ -20,4 +20,8 @@ socketClient.on('connect', (client) => {
     client.emit('new todo step 1 response', {message: data.title + ' was created'});
   });
 
+  client.on('new todo', (data) => {
+    console.log(require('util').inspect(data, { depth: null }));
+  });
+
 });
